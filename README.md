@@ -1,24 +1,23 @@
-# README
+# <シニア情報コミュニティサイト>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+このサイトではシニア向けの情報を企業・お店などが提示できる機能と、シニア同士が交流できるアクティビティなどをお知らせできる機能があります。
+情報にいいねやコメント機能、またシニア同士がフォローし合えるので、シニア世代に向けての交流もできます。
+### サイトテーマ
+<シニア世代により便利な情報をわかりやすく伝えることを意識しています。デジタルに不慣れな方でもわかりやすいサービスになるよう心がけています。>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<デジタルが普及している現代で、シニア世代にもデジタルネイティブ世代と同じように楽しんでもらいたいと思ったから。>
 
-* Ruby version
+### ターゲットユーザ
+<...シニア世代、シニア世代に向けたキャンペーンがある企業、お店>
 
-* System dependencies
+### 主な利用シーン
+<...シニア世代が遊びに行く際やシニア世代がコミュニティを作りたいと思った際>
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS : macOS(Ventura)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
