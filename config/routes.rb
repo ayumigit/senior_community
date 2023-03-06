@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'notices/index'
-    get 'notices/show'
-    get 'notices/edit'
-    get 'notices/new'
-  end
 # 会員用
 # URL /seniors/sign_in ...
 devise_for :seniors,skip: [:passwords], controllers: {
@@ -22,6 +16,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
+    get 'about' => 'homes#about', as: 'about'
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+    resources :seniors, only: [:show, :edit]
     resources :notices
       resources :notice_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
