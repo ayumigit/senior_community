@@ -1,5 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
+    @senior = current_senior
   end
 
   def about
@@ -12,6 +13,7 @@ class Public::HomesController < ApplicationController
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
   end
       sign_in senior
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+      redirect_to root_path
+    #redirect_to seniors_path(@senior), notice: 'ゲストユーザーとしてログインしました。'
   end
 end

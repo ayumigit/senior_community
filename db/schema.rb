@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2023_03_05_143412) do
     t.string "last_name", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "nickname", default: "", null: false
+    t.text "introduction"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

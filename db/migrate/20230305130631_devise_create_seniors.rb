@@ -34,6 +34,7 @@ class DeviseCreateSeniors < ActiveRecord::Migration[6.1]
       t.string :last_name, null: false, default: ""
       t.string :first_name, null: false, default: ""
       t.string :nickname, null: false, default: ""
+      t.text :introduction
       t.boolean :is_active, null: false, default: true
 
 
