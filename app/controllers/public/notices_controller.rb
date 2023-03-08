@@ -29,11 +29,11 @@ class Public::NoticesController < ApplicationController
   def create
     @notice = Notice.new(notice_params)
     @notice.save
-    redirect_to notice_path(@notice)
+    redirect_to notices_path
   end
 
   private
   def notice_params
-    params.require(:notice).permit(:title, :image, :body, :genre_id, :place, :start_datetime, :end_datetime)
+    params.require(:notice).permit(:title, :image, :body, :genre_id, :place, :start_datetime, :end_datetime, :notice_image)
   end
 end

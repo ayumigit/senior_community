@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2023_03_05_143412) do
 
   create_table "notices", force: :cascade do |t|
     t.integer "senior_id", null: false
+    t.integer "genre_id", null: false
     t.string "title", default: "", null: false
     t.text "body", default: "", null: false
     t.datetime "start_datetime", null: false
