@@ -1,2 +1,44 @@
-<h1>Public::Notices#show</h1>
-<p>Find me in app/views/public/notices/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <h3 class="mb-5 ml-5">投稿詳細</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @notice.get_notice_image(300,300), class:"shadow img-thumbnail" %>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group row">
+        <p class="col-3 h5">タイトル</p>
+        <p class="col-8"><%= @notice.title %></p>
+      </div>
+      <div class="form-group row">
+        <p class="col-3 h5">投稿内容</p>
+        <p class="col-8"><%= @notice.body %></p>
+      </div>
+      <div class="form-group row">
+        <p class="col-3 h5">投稿の種類</p>
+        <p class="col-8"><%= @notice.genre.name %></p>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-3 h5">開始日時</p>
+        <p class="col-8"><%= @notice.start_datetime.strftime('%m月%d日%H:%M')%></p>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-3 h5">終了日時</p>
+        <p class="col-8"><%= @notice.end_datetime.strftime('%m月%d日%H:%M')%></p>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-3 h5">開催場所</p>
+        <p class="col-8"><%= @notice.place %></p>
+      </div>
+
+    </div>
+  </div>
+  <div class="form-group text-center my-5">
+      <%= link_to "編集する", edit_notice_path, class: "btn btn-success btn-lg" %>
+      <%= link_to "削除する", notice_path, method: :delete, data: { confirm: "本当に投稿を削除しますか？" }, class: "btn btn-danger btn-lg destroy_book_#{@notice.id}" %>
+  </div>
+

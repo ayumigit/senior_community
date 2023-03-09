@@ -6,7 +6,7 @@
       <% @notices.each do |notice| %>
         <div>
         <%= link_to notice_path(notice.id), class:"a" do %>
-          <div ><%= image_tag notice.get_image, size:'150x100', class:'rounded shadow' %></div>
+          <div ><%= image_tag notice.get_notice_image(150,100), class:'rounded shadow' %></div>
             <div class="row"><span class="text-secondary mt-3"><strong><%= notice.title %></strong></span></div>
               <div class="row"><span class="text-secondary mt-1"><strong>¥<%= notice.place %></strong></span></div>
         <% end %>

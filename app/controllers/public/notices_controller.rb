@@ -22,13 +22,20 @@ class Public::NoticesController < ApplicationController
     end
   end
 
+  def destroy
+    @notice = Notice.find(params[:id])
+    @notice.destroy
+    redirect_to notice_path
+  end
+
   def new
     @notice = Notice.new
   end
 
   def create
     @notice = Notice.new(notice_params)
-    @notice.save
+    @notice.senior_id = current_senior.id
+    @notice.save!
     redirect_to notices_path
   end
 

@@ -26,6 +26,6 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    seniors_path(resource)
+    senior_path(resource)
   end
 end

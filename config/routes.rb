@@ -19,7 +19,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'about' => 'homes#about', as: 'about'
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
     resources :seniors, only: [:show, :edit]
-    resources :notices
+    resources :notices, only: [:show, :index, :destroy, :edit, :update, :create, :new]
       resources :notice_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
   end

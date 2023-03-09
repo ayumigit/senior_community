@@ -2,7 +2,7 @@
  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #666633;">
   <div class="container">
 
-   <a class="navbar-brand" href="/"><span>SeniorComunity</span></a>
+   <a class="navbar-brand" href="notices"><span>SeniorComunity</span></a>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
      <ul class="navbar-nav ml-auto">
@@ -29,7 +29,7 @@
         <% end %>
         さん
       <li>
-       <%= link_to "マイページ", notices_path, class: "nav-link text-light" %>
+       <%= link_to "マイページ", senior_path(:id), class: "nav-link text-light" %>
       </li>
       <li>
        <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light' %>
