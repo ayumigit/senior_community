@@ -2,6 +2,8 @@ class Notice < ApplicationRecord
   has_one_attached :notice_image
   belongs_to :genre
   belongs_to :senior
+  has_many :notice_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def get_notice_image(width, height)
     unless notice_image.attached?

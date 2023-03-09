@@ -25,7 +25,7 @@ class Public::NoticesController < ApplicationController
   def destroy
     @notice = Notice.find(params[:id])
     @notice.destroy
-    redirect_to notice_path
+    redirect_to notices_path
   end
 
   def new
