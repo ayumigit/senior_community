@@ -1,4 +1,4 @@
-class Public::NoticeCommmentsController < ApplicationController
+class Public::NoticeCommentsController < ApplicationController
   def create
     notice = Notice.find(params[:notice_id])
     comment = current_senior.notice_comments.new(notice_comment_params)
@@ -6,6 +6,8 @@ class Public::NoticeCommmentsController < ApplicationController
     comment.save
     redirect_to request.referer
   end
+
+
 
   def destroy
     NoticeComment.find_by(id: params[:id], notice_id: params[:notice_id]).destroy

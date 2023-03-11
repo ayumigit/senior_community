@@ -7,6 +7,7 @@ class Public::NoticesController < ApplicationController
   def show
     @notice = Notice.find(params[:id])
     @notices = Notice.all
+    @notice_comment = NoticeComment.new
   end
 
   def edit
