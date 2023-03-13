@@ -5,6 +5,11 @@ class Notice < ApplicationRecord
   has_many :notice_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+
+  def favorited_by?(senior)
+    favorites.where(senior_id: senior.id).exists?
+  end
+
   def get_notice_image(width, height)
     unless notice_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

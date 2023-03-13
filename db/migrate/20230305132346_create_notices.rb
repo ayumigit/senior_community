@@ -8,6 +8,7 @@ class CreateNotices < ActiveRecord::Migration[6.1]
       t.datetime :start_datetime, null: false, default: ""
       t.datetime :end_datetime, null: false, default: ""
       t.string :place, null: false, default: ""
+      t.float :rate
       t.timestamps
     end
   end

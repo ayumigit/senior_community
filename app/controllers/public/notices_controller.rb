@@ -1,6 +1,5 @@
 class Public::NoticesController < ApplicationController
   def index
-    @notice = Notice.new
     @notices = Notice.all
   end
 

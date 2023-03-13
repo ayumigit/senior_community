@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2023_03_05_143412) do
     t.datetime "start_datetime", null: false
     t.datetime "end_datetime", null: false
     t.string "place", default: "", null: false
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

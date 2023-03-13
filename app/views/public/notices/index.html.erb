@@ -14,6 +14,8 @@
             <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
             <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
             <p class="col-12 h4"><%= notice.place %></p>
+            <p><%= render "public/favorites/btn", notice: notice %></p>
+            <p><%= render "public/notices/static_rate", notice: notice %></p>
           </div>
 
         </div>

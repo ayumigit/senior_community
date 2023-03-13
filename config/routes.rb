@@ -21,7 +21,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :seniors, only: [:show, :edit]
     resources :notices, only: [:show, :index, :destroy, :edit, :update, :create, :new] do
       resources :notice_comments, only: [:create, :destroy, :index]
-      resource :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy, :index]
     end
   end
 
