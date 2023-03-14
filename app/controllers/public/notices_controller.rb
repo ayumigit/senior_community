@@ -1,12 +1,14 @@
 class Public::NoticesController < ApplicationController
   def index
     @notices = Notice.all
+    @genres = Genre.all
   end
 
   def show
     @notice = Notice.find(params[:id])
     @notices = Notice.all
     @notice_comment = NoticeComment.new
+    @genres = Genre.all
   end
 
   def edit

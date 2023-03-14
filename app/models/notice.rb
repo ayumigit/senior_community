@@ -7,7 +7,7 @@ class Notice < ApplicationRecord
 
 
   def favorited_by?(senior)
-    favorites.where(senior_id: senior.id).exists?
+    favorites.exists?(senior_id: senior.id)
   end
 
   def get_notice_image(width, height)

@@ -2,6 +2,7 @@ class Public::SeniorsController < ApplicationController
 
   def show
     @senior = current_senior
+    @senior_relation = Senior.find(params[:id])
   end
 
   def edit
@@ -16,6 +17,13 @@ class Public::SeniorsController < ApplicationController
       redirect_to request.referer
     end
   end
+
+  private
+
+  def seniorr_params
+    params.require(:senior).permit(:first_name, :last_name, :introduction, :profile_image, :nickname, :is_active, :email)
+  end
+
 
 
 

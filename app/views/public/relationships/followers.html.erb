@@ -1,0 +1,6 @@
+<h2>フォローされているシニア会員</h2>
+<% if @seniors.any? %>
+  <%= render 'public/seniors/index', seniors: @seniors %>
+<% else %>
+  <p>フォローされているシニア会員はいません</p>
+<% end %>

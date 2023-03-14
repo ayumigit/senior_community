@@ -1,0 +1,7 @@
+<% if current_senior != senior %>
+  <% if current_senior.following?(senior) %>
+    <%= link_to "フォロー外す", senior_relationships_path(senior.id), method: :delete, class: "btn btn-info" %>
+  <% else %>
+    <%= link_to "フォローする", senior_relationships_path(senior.id), method: :post, class: "btn btn-success" %>
+  <% end %>
+<% end %>
