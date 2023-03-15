@@ -1,9 +1,9 @@
 <div class="container-fluid mx-5">
   <div class="row">
     <div>
-      <div><h1><span><投稿一覧></span>(全<%= @notices.count %>件)</h1></div>
+      <div><h1><span><投稿一覧></span>(全<%= notices.count %>件)</h1></div>
       <div>
-      <% @notices.each do |notice| %>
+      <% notices.each do |notice| %>
         <div>
           <div class ="text-center">
           <%= link_to notice_path(notice.id), class:"a" do %>

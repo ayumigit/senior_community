@@ -1,8 +1,13 @@
 class Public::SeniorsController < ApplicationController
 
   def show
+    @senior_now = current_senior
+    @senior = Senior.find(params[:id])
+  end
+
+  def index
     @senior = current_senior
-    @senior_relation = Senior.find(params[:id])
+    @seniors = Senior.all
   end
 
   def edit

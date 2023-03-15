@@ -1,0 +1,2 @@
+module Admin::SeniorsHelper
+end

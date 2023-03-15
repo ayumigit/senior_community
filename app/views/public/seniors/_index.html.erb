@@ -1,0 +1,24 @@
+<div><h1><シニア会員一覧></h1></div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>プロフィール画像</th>
+              <th>ニックネーム</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <% seniors.each do |senior| %>
+          <tr>
+          <td><%= link_to senior_path(senior.id), class:"a" do %>
+          <%= image_tag senior.get_profile_image(150,100), class:"rounded shadow col-8" %>
+          <% end %>
+          </td>
+          <td><%= senior.nickname %></td>
+          <td><%= senior.introduction %></td>
+          <td class="text-center"><%= render "public/relationships/btn", senior: senior %></td>
+          <% end %>
+          </tr>
+          </tbody>
+        </table>

@@ -24,12 +24,12 @@
       <!--customersログイン時のヘッダー-->
       <% elsif senior_signed_in? %>
       <li class= "nav-link text-light">
-        ようこそ！ <%= link_to notices_path, class: "text-white font-weight-bold" do %>
+        ようこそ！ <%= link_to senior_path(current_senior.id), class: "text-white font-weight-bold" do %>
         <%= current_senior.last_name %><%= current_senior.first_name %>
         <% end %>
         さん
       <li>
-       <%= link_to "マイページ", senior_path(current_senior.id), class: "nav-link text-light" %>
+       <%= link_to "シニア会員一覧", seniors_path, class: "nav-link text-light" %>
       </li>
       <li>
        <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light' %>

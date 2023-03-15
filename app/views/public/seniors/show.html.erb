@@ -30,11 +30,11 @@
               </tr>
               <tr>
               <th>フォローしているシニア会員</th>
-              <th><%= link_to current_senior.followings.count, senior_followings_path(@senior_relation) %></th>
+              <th><%= link_to current_senior.followings.count, senior_followings_path(@senior) %></th>
               </tr>
               <tr>
               <th>フォローされているシニア会員</th>
-              <th><%= link_to current_senior.followers.count, senior_followers_path(@senior_relation) %></th>
+              <th><%= link_to current_senior.followers.count, senior_followers_path(@senior) %></th>
               </tr>
 
               <tr><%= render "public/relationships/btn", senior: @senior %></tr>

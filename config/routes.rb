@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'seniors/index'
+    get 'seniors/show'
+    get 'seniors/edit'
+  end
   namespace :public do
     get 'genres/show'
   end
@@ -22,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'about' => 'homes#about', as: 'about'
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
-    resources :seniors, only: [:show, :edit] do
+    resources :seniors, only: [:show, :edit, :index] do
       resource :relationships, only: [:create, :destroy]
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
@@ -39,6 +44,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'top' => 'homes#top', as: 'top'
     resources :genres, only: [:index, :create, :edit, :update, :new]
     resources :seniors, only: [:index, :show, :edit, :update]
+    resources :notices, only: [:index, :show, :destroy] do
+      resources :notice_comments, only: [:index, :destroy]
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
