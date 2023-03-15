@@ -32,6 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :notice_comments, only: [:create, :destroy, :index]
       resource :favorites, only: [:create, :destroy, :index]
     end
+    resources :genres, only: [:show]
   end
 
   namespace :admin do
