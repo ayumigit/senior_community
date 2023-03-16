@@ -17,4 +17,16 @@ class Notice < ApplicationRecord
     end
     notice_image.variant(resize_to_fill: [width, height]).processed
   end
+
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Notice.where(title: content)
+    elsif method == 'forward'
+      Notice.where('title LIKE ?', content+'%')
+    elsif method == 'backward'
+      Notice.where('title LIKE ?', '%'+content)
+    else
+      Notice.where('title LIKE ?', '%'+content+'%')
+    end
+  end
 end

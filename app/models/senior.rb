@@ -38,5 +38,17 @@ class Senior < ApplicationRecord
     followings.include?(senior)
   end
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Senior.where(nickname: content)
+    elsif method == 'forward'
+      Senior.where('nickname LIKE ?', content + '%')
+    elsif method == 'backward'
+      Senior.where('nickame LIKE ?', '%' + content)
+    else
+      Senior.where('nickname LIKE ?', '%' + content + '%')
+    end
+  end
+
 
 end

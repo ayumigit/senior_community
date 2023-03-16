@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-
-  namespace :admin do
-    get 'seniors/index'
-    get 'seniors/show'
-    get 'seniors/edit'
-  end
-  namespace :public do
-    get 'genres/show'
-  end
 # 会員用
 # URL /seniors/sign_in ...
 devise_for :seniors,skip: [:passwords], controllers: {
@@ -25,6 +16,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
+    get '/search', to: 'searches#search'
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
     resources :seniors, only: [:show, :edit, :index] do
@@ -42,7 +34,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
-    resources :genres, only: [:index, :create, :edit, :update, :new]
+    resources :genres, only: [:index, :create, :edit, :update, :new, :show]
     resources :seniors, only: [:index, :show, :edit, :update]
     resources :notices, only: [:index, :show, :destroy] do
       resources :notice_comments, only: [:index, :destroy]

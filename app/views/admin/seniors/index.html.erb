@@ -11,7 +11,7 @@
 
           <% @seniors.each do |senior| %>
           <tr>
-          <td><%= link_to senior_path(senior.id), class:"a" do %>
+          <td><%= link_to admin_senior_path(senior.id), class:"a" do %>
           <%= image_tag senior.get_profile_image(150,100), class:"rounded shadow col-8" %>
           <% end %>
           </td>
