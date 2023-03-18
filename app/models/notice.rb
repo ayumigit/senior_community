@@ -4,6 +4,8 @@ class Notice < ApplicationRecord
   belongs_to :senior
   has_many :notice_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :notice_tags, dependent: :destroy
+  has_many :tags, through: :notice_tags
 
 
   def favorited_by?(senior)
@@ -17,6 +19,20 @@ class Notice < ApplicationRecord
     end
     notice_image.variant(resize_to_fill: [width, height]).processed
   end
+
+  def save_tags(savenotice_tags)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - savenotice_tags
+    new_tags = savenotice_tags - current_tags
+    old_tags.each do |old_name|
+      self.tags.delete Tag.find_by(name:old_name)
+    end
+    new_tags.each do |new_name|
+      notice_tag = Tag.find_or_create_by(name:new_name)
+      self.tags << notice_tag
+    end
+  end
+
 
   def self.search_for(content, method)
     if method == 'perfect'
