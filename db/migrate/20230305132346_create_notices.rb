@@ -4,10 +4,10 @@ class CreateNotices < ActiveRecord::Migration[6.1]
       t.integer :senior_id, null: false
       t.integer :genre_id, null:false
       t.string :title, null: false
-      t.text :body, null: false, default: ""
+      t.text :body, null: false
       t.datetime :start_datetime, null: false
       t.datetime :end_datetime, null: false
-      t.string :place, null: false, default: ""
+      t.string :place, null: false
       t.float :rate
       t.timestamps
     end
