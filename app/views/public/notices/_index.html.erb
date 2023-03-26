@@ -1,16 +1,13 @@
 <div class="container-fluid mx-5">
   <div class="row">
-    <div>
-      <div><h1><span><投稿一覧></span>(全<%= notices.count %>件)</h1></div>
-      <div>
+    <div class="d-flex justify-content-center">
       <% notices.each do |notice| %>
-        <div>
-          <div class ="text-center">
+        <div class ="text-center">
           <%= link_to notice_path(notice.id), class:"a" do %>
             <div ><%= image_tag notice.get_notice_image(150,100), class:"rounded shadow col-8" %></div>
           <% end %>
 
-            <span class="col-8"><strong>●<%= notice.title %>●</strong></span>
+            <span class="col-4"><strong>●<%= notice.title %>●</strong></span>
             <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
             <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
             <p class="col-12 h4"><%= notice.place %></p>
@@ -20,9 +17,6 @@
 
         </div>
       <% end %>
-      </div>
-
-
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
       <h4 class="ml-5">新規投稿</h4>
     </div>
   </div>
-  <%= form_with model: [@notice] do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= form_with model: @notice, local: true do |f| %>
+    <%= render 'form', f: f %>
   <% end %>
 </div>

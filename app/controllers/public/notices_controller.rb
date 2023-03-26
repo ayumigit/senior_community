@@ -37,12 +37,18 @@ class Public::NoticesController < ApplicationController
   def create
     @notice = Notice.new(notice_params)
     @notice.senior_id = current_senior.id
-    @notice.save!
-    redirect_to notices_path
+    tag_list = params[:notice][:tag_name].split(',')
+    if @notice.save
+      @notice.save_tags(tag_list)
+      redirect_to notices_path, notice: "新規登録に成功しました！"
+    else
+      @notices = Notice.all
+      render 'index'
+    end
   end
 
   private
   def notice_params
-    params.require(:notice).permit(:title, :image, :body, :genre_id, :place, :start_datetime, :end_datetime, :notice_image)
+    params.require(:notice).permit(:title, :image, :body, :genre_id, :place, :start_datetime, :end_datetime, :notice_image, :rate)
   end
 end

@@ -25,14 +25,14 @@
       <% elsif senior_signed_in? %>
       <li class= "nav-link text-light">
         ようこそ！ <%= link_to senior_path(current_senior.id), class: "text-white font-weight-bold" do %>
-        <%= current_senior.last_name %><%= current_senior.first_name %>
+        <%= current_senior.nickname %>
         <% end %>
         さん
       <li>
        <%= link_to "シニア会員一覧", seniors_path, class: "nav-link text-light" %>
       </li>
       <li>
-       <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light' %>
+       <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light', 'data-turbolinks': false %>
       </li>
       <li>
        <%= link_to "ログアウト", destroy_senior_session_path, method: :delete, class: 'nav-link text-light' %>
@@ -62,9 +62,9 @@
        <%= f.text_field :word , placeholder:"検索"%>
       <% end %>
      </div>
-     <div class="d-flex flex-row-reverse mr-md-5 pb-1">
+     <div class="pb-1">
       <%= form_with url: search_path, method: :get do |f| %>
-       <%= f.text_field :word , placeholder:"検索"%>
+       <%= f.text_field :tag , placeholder:"タグ検索"%>
       <% end %>
      </div>
 
