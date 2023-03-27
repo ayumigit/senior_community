@@ -41,17 +41,17 @@
       </div>
 
       <div class="form-group row">
-      <p class="col-3 h2">コメント数: <%= @notice.notice_comments.count %></p>
-      <p class="col-3 h2"><%= render "public/favorites/btn", notice: @notice %></p>
+      <p class="col-4 h2">コメント数: <%= @notice.notice_comments.count %></p>
+      <p class="col-8 h2"><%= render "public/favorites/btn", notice: @notice %></p>
 
       <%= render "public/notice_comments/index", notice: @notice %>
       <%= render "public/notice_comments/form", notice: @notice, notice_comment: @notice_comment %>
-
-
     </div>
-  </div>
-  <div class="form-group text-center my-5">
+
+    <div class="orm-group row">
       <%= link_to "編集する", edit_notice_path, class: "btn btn-success btn-lg" %>
       <%= link_to "削除する", notice_path, method: :delete, data: { confirm: "本当に投稿を削除しますか？" }, class: "btn btn-danger btn-lg destroy_notice_#{@notice.id}" %>
+    </div>
   </div>
+
 

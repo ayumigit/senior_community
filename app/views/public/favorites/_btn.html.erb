@@ -6,7 +6,7 @@
   <% end %>
 <% else %>
 
-  <%= link_to notice_favorites_path(Notice.first), method: :post do %>
+  <%= link_to notice_favorites_path(notice), method: :post do %>
     <i class="fas fa-heart" aria-hidden="true"></i>
     <%= notice.favorites.count %> いいね
   <% end %>

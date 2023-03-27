@@ -5,8 +5,8 @@
     </div>
   </div>
 
-
-  <%= form_with model: [@notice], url: notice_path(@notice.id), method: :patch do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f, :edit_flag => true} %>
+   <%= form_with model: @notice, local: true do |f| %>
+  <%#= render :partial => 'form', :locals => {:f => f, :edit_flag => true} %>
+  <%= render 'form', {:f => f, :edit_flag => true} %>
   <% end %>
 </div>

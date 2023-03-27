@@ -1,12 +1,15 @@
 <div class = "container-fluid">
   <div class ="row">
-    <div class="col-md-9 col-9 mx-6 mx-auto px-auto my-5">
-      <h1><span>登録情報編集</span></h1>
+    <div class="col-lg-8 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
+      <h1><span><登録情報編集></span></h1>
 
-       <%= form_with model: @senior, url: senior_path, method: :patch, local: true do |f| %>
+       <%= form_with model: @senior, url: senior_path(@senior.id), method: :patch, local: true do |f| %>
+       <label class="form-group row my-3">画像登録</label>
+        <div class="col-md-5">
+        <%= f.file_field :profile_image, accept: "profile_image/*"%>
+        </div>
+
         <div class="form-group row my-3">
-
-        <div class="form-group row">
         <%= f.label :email, 'メールアドレス', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'col-7 mx-auto form-control' %>
         </div>
@@ -32,8 +35,8 @@
         </div>
 
         <div class="form-group row">
-        <%= f.label :body, '紹介文', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
-        <%= f.text_area :body, autofocus: true, autocomplete: "email", class:'col-7 mx-auto form-control' %>
+        <%= f.label :introduction, '紹介文', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
+        <%= f.text_area :introduction, autofocus: true, class:'col-7 mx-auto form-control' %>
         </div>
 
         <div class="form-group row">
@@ -49,15 +52,12 @@
 
         <div class="form-group row">
         <span class="col-5"></span>
-        <%= f.submit "新規登録", class: "btn btn btn-success col-4" %>
+        <%= f.submit "更新する", class: "btn btn btn-success col-4" %>
+        <%#= link_to "退会する", check_customers_path, class:'btn btn-danger col-2 offset-2' %>
         </div>
 
       <% end %>
-        <#div class="text-center">
-        <#h3 class="center-block">すでに登録済みの方</h3>
-        <h3><%= render "public/shared/links" %></h3>
-        <h3>からログインしてください</h3>
-        </div>
+
     </div>
   </div>
 </div>

@@ -3,10 +3,12 @@
       <div class="col-lg-6 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
 
         <h3 class="mb-5">マイページ</h3>
-
         <div  class='row pb-3'>
           <h4 class="col-3">登録情報</h4>
           <%= link_to  '編集する', edit_senior_path, class:"btn btn-success" %>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag @senior.get_profile_image(300,300), class:"shadow img-thumbnail" %>
         </div>
 
         <table class="table table-bordered">

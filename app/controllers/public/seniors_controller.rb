@@ -17,16 +17,16 @@ class Public::SeniorsController < ApplicationController
   def update
     @senior = current_senior
     if @senior.update(senior_params)
-      redirect_to seniors_path
+      redirect_to seniors_path(@senior.id)
     else
-      redirect_to request.referer
+      render :edit
     end
   end
 
   private
 
-  def seniorr_params
-    params.require(:senior).permit(:first_name, :last_name, :introduction, :profile_image, :nickname, :is_active, :email)
+  def senior_params
+    params.require(:senior).permit(:first_name,  :last_name, :introduction, :profile_image, :nickname, :is_active, :email)
   end
 
 
