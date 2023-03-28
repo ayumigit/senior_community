@@ -1,0 +1,19 @@
+<table>
+  <tbody>
+      <% notice.notice_comments.each do |notice_comment| %>
+      <tr>
+
+        <td>
+          <%= link_to senior_path(notice_comment.senior) do %>
+            <%= image_tag notice_comment.senior.get_profile_image(100,100) %><br>
+            <%= notice_comment.senior.nickname %>
+          <% end %>
+        </td>
+        <td><%= notice_comment.comment %></td>
+        <td>
+            <%= link_to "削除する", notice_notice_comment_path(notice, notice_comment), method: :delete, class: "btn btn-danger pull-right" %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
