@@ -1,10 +1,12 @@
 class Admin::SeniorsController < ApplicationController
   def index
     @seniors = Senior.all
+    @senior = current_senior
   end
 
   def show
     @senior = Senior.find(params[:id])
+    @senior_now = current_senior
   end
 
   def edit
@@ -22,7 +24,7 @@ class Admin::SeniorsController < ApplicationController
   end
 
   def senior_params
-    params.require(:senior).permit(:email, :last_name, :first_name, :nickname, :is_deleted)
+    params.require(:senior).permit(:email, :last_name, :first_name, :nickname, :introduction, :is_deleted)
   end
 
 end

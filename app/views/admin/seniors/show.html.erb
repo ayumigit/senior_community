@@ -13,15 +13,15 @@
           <tbody>
               <tr>
         	      <th>会員ID</th>
-        	      <th><%= @senior_id %></th>
+        	      <th><%= @senior.id%></th>
               </tr>
               <tr>
-                <th scope="row" class='bg-light col-lg-4'>ニックネーム</th>
-                <td class='col-lg-8 py-2'><%= current_senior.nickname %></td>
+                <th scope="row" class='bg-light col-lg-4'>ニックネーム</th> 
+                <td class='col-lg-8 py-2'><%= @senior.nickname %></td>
               </tr>
               <tr>
                 <th scope="row" class='bg-light col-lg-4'>紹介文</th>
-                <td class='col-lg-8 py-2'><%= current_senior.introduction %></td>
+                <td class='col-lg-8 py-2'><%= @senior.introduction %></td>
               </tr>
 
               <tr>
