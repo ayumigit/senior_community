@@ -5,7 +5,9 @@
         <%= image_tag notice_comment.senior.get_profile_image(100,100) %><br>
         <%= notice_comment.senior.nickname %>
       <% end %>
+      <% if notice.genre_id == 1 %>
       <%= render "public/notices/static_rate", notice: notice_comment, prefix: "comment" %>
+      <% end %>
     </div>
     <div class="col-sm-6">
       <%= notice_comment.comment %>
@@ -13,7 +15,7 @@
     <div class="col-sm-3">
       <% if notice_comment.senior == current_senior %>
         <%= link_to "削除する", notice_notice_comment_path(notice, notice_comment), method: :delete, class: "btn btn-danger pull-right" %>
-      <% end %>  
+      <% end %>
     </div>
   </div>
 <% end %>

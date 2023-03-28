@@ -52,31 +52,6 @@
     <%= f.text_field :tag_name, class: 'notice_tag_name' %>
    </div>
   </div>
-
-
-    <div class="form-group row" id="star">
-      <label class="col-md-2 offset-md-2">レビュー評価</label>
-      <div class="col-md-4">
-      <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
-
-      <div id="post_raty"></div>
-      </div>
-    </div>
-  　  <script>
-      $(document).on('turbolinks:load', function() {
-      let raty_elem = document.querySelector('#post_raty');
-      raty_elem.innerHTML = ""
-      let option = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'notice[rate]',
-          score: "<%= f.object.nil? ? 0 : f.object.rate %>"
-        };
-      raty(raty_elem,option);
-     });
-    </script>
-
   <div class="row mb-5">
     <div class="col-2 offset-md-5">
       <div class="actions">
