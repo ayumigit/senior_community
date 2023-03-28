@@ -1,4 +1,25 @@
 <%= form_with(model:[notice, notice_comment], url:notice_notice_comments_path(notice.id), local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
   <%= f.submit "送信する", class: "btn-primary btn-lg btn-base-1 mt-20 pull-right" %>
+    <div class="form-group row" id="star">
+      <label class="col-md-2 offset-md-2">レビュー評価</label>
+        <div class="col-md-4">
+          <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
+          <div id="post_raty"></div>
+        </div>
+    </div>
+  　<script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#post_raty');
+      raty_elem.innerHTML = ""
+      let option = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'notice[rate]',
+          score: "<%= f.object.nil? ? 0 : f.object.rate %>"
+        };
+      raty(raty_elem,option);
+     });
+    </script>
 <% end %>

@@ -4,6 +4,7 @@ class CreateNoticeComments < ActiveRecord::Migration[6.1]
       t.text :comment
       t.integer :senior_id
       t.integer :notice_id
+      t.float :rate
 
       t.timestamps
     end

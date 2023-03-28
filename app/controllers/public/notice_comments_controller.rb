@@ -3,6 +3,7 @@ class Public::NoticeCommentsController < ApplicationController
     notice = Notice.find(params[:notice_id])
     comment = current_senior.notice_comments.new(notice_comment_params)
     comment.notice_id = notice.id
+    comment.rate = params.dig(:notice, :rate)
     comment.save
     redirect_to request.referer
   end

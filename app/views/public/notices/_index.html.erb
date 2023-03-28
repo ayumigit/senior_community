@@ -1,21 +1,19 @@
 
-    <div class='col-lg-8 img_wrap'>
-      <% notices.each do |notice| %>
-        <div class ="text-center">
-          <%= link_to notice_path(notice.id), class:"a" do %>
-            <div ><%= image_tag notice.get_notice_image(150,100), class:"rounded shadow col-8" %></div>
-          <% end %>
-
-            <span class="col-4"><strong>●<%= notice.title %>●</strong></span>
-            <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
-            <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
-            <p class="col-12 h4"><%= notice.place %></p>
-            <p><%= render "public/favorites/btn", notice: notice %></p>
-            <p><%= render "public/notices/static_rate", notice: notice %></p>
-          </div>
-
-        </div>
+<% notices.each do |notice| %>
+    <div class ="col-sm-6">
+      <%= link_to notice_path(notice.id), class:"a" do %>
+        <div ><%= image_tag notice.get_notice_image(150,100), class:"rounded shadow col-8" %></div>
       <% end %>
-      <%= paginate notices %>
+
+      <span class="col-4"><strong>●<%= notice.title %>●</strong></span>
+      <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
+      <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
+      <p class="col-12 h4"><%= notice.place %></p>
+      <p><%= render "public/favorites/btn", notice: notice %></p>
+      <p><%= render "public/notices/static_rate", notice: notice, prefix: 'notice' %></p>
     </div>
+<% end %>
+<%= paginate notices %>
+
+
 
