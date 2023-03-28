@@ -19,9 +19,9 @@
           <% end %>
           </td>
           <td><%= senior.nickname %></td>
-          <td><%= senior.introduction %></td>
           <td class="text-center"><%= render "public/relationships/btn", senior: senior %></td>
           <% end %>
+          <%= paginate @seniors %>
           </tr>
           </tbody>
         </table>

@@ -1,6 +1,6 @@
 class Public::NoticesController < ApplicationController
   def index
-    @notices = Notice.all
+    @notices = Notice.page(params[:page]).per(4)
     @genres = Genre.all
   end
 

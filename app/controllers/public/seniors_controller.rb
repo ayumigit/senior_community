@@ -7,7 +7,7 @@ class Public::SeniorsController < ApplicationController
 
   def index
     @senior = current_senior
-    @seniors = Senior.all
+    @seniors = Senior.page(params[:page]).per(4)
   end
 
   def edit

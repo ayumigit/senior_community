@@ -17,14 +17,14 @@ class Admin::SeniorsController < ApplicationController
     @senior = Senior.find(params[:id])
     if @senior.update(senior_params)
       flash[:notice] = "更新に成功しました！"
-      redirect_to admin_senior_path(@senior)
+      redirect_to admin_senior_path(@senior.id)
     else
       render :edit
     end
   end
 
   def senior_params
-    params.require(:senior).permit(:email, :last_name, :first_name, :nickname, :introduction, :is_deleted)
+    params.require(:senior).permit(:email, :last_name, :first_name, :nickname, :introduction, :is_active, :id)
   end
 
 end
