@@ -5,7 +5,9 @@
         <h3 class="mb-5">マイページ</h3>
         <div  class='row pb-3'>
           <h4 class="col-3">登録情報</h4>
+          <% if @senior == current_senior %>
           <%= link_to  '編集する', edit_senior_path, class:"btn btn-success" %>
+          <% end %>
         </div>
         <div class="col-md-3">
           <%= image_tag @senior.get_profile_image(300,300), class:"shadow img-thumbnail" %>
