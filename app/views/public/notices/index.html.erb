@@ -6,11 +6,11 @@
     </div>
     <div col-10><h1><投稿一覧>(全<%= @notices.count %>件)</h1></div>
       <div class='form-group row form-inline'>
-        <%= render 'index', notices: @notices, prefix: "index" %>
+        <%= render 'index', notices: @notices %>
        </div>
     </div>
   </div>
 </div>
 
 
-
+<!--renderの@notieの後に入れる#, #prefix: "index"-->

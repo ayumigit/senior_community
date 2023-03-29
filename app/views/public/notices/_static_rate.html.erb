@@ -1,7 +1,7 @@
-<div id="<%= prefix %>_rate_<%= notice.id %>"></div>
+<div id="<%#= prefix %>_rate_<%= notice.id %>"></div>
 <script>
 $(document).on('turbolinks:load', function() {
-    let raty_<%= notice.id %> = document.querySelector('#<%= prefix %>_rate_<%= notice.id %>');
+    let raty_<%= notice.id %> = document.querySelector('#<%#= prefix %>_rate_<%= notice.id %>');
     raty_<%= notice.id %>.innerHTML = ""
     let option_<%= notice.id %> = {
         starOn: "<%= asset_path('star-on.png') %>",
