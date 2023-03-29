@@ -3,7 +3,7 @@ class Senior < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :profile_image
   has_many :notices, dependent: :destroy
-  has_many :notice_comments, dependent: :destroy
+  has_many :notice_comment2s, dependent: :destroy
   has_many :favorites, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -2,7 +2,7 @@ class Notice < ApplicationRecord
   has_one_attached :notice_image
   belongs_to :genre
   belongs_to :senior
-  has_many :notice_comments, dependent: :destroy
+  has_many :notice_comment2s, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :notice_tags, dependent: :destroy
   has_many :tags, through: :notice_tags
