@@ -6,10 +6,12 @@
     <div class="col-md-3">
       <%= image_tag @notice.get_notice_image(300,300), class:"shadow img-thumbnail" %>
       <%= render "public/notice_comments/form", notice: @notice, notice_comment2: @notice_comment %>
+      <% if @senior == current_senior %>
       <div class="form-group">
         <%= link_to "編集する", edit_notice_path, class: "btn btn-success btn-lg" %>
         <%= link_to "削除する", notice_path, method: :delete, data: { confirm: "本当に投稿を削除しますか？" }, class: "btn btn-danger btn-lg destroy_notice_#{@notice.id}" %>
       </div>
+      <% end %>
     </div>
 
     <div class="col-md-9">
