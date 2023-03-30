@@ -1,7 +1,11 @@
 <header class="bg-secondary text-monospace">
  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #666633;">
   <div class="container-fluid">
+   <% if senior_signed_in? %>
    <a class="navbar-brand" href="/notices"><span>SeniorComunity</span></a>
+   <% else %>
+   <a class="navbar-brand" href="/"><span>SeniorComunity</span></a>
+   <% end %>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
    </button>
