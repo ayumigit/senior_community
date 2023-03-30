@@ -10,22 +10,9 @@
       <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
       <p class="col-12 h4"><%= notice.place %></p>
       <p><%= render "public/favorites/btn", notice: notice %></p>
-      <p><%#= render "public/notices/static_rate", notice: notice, prefix: 'notice_comment' %></p>
-      <% if notice.genre_id == 1 %>
+      <% if notice.genre.discount_info? %>
       <div id="star-rate<%= notice.id %>">
       </div>
-    <!--<script>-->
-    <!--  $('#star-rate<%#= notice.id%>').raty({-->
-    <!--    size      : 36,-->
-    <!--    starOff   : '<%#= asset_path('star-off.png') %>',-->
-    <!--    starOn    : '<%#= asset_path('star-on.png') %>',-->
-    <!--    starHalf: '<%#= asset_path('star-half.png') %>',-->
-    <!--    half: true,-->
-    <!--    readOnly: true,-->
-    <!--    score: <%#= notice.notice_comments.average(:rate).to_f.round(1) %>,-->
-        <!--//↑ 平均点を算出し、round関数で切り上げる-->
-    <!--  });-->
-    <!--</script>-->
     <script>
     $(document).on('turbolinks:load', function() {
       let raty_<%= notice.id %> = document.querySelector('#star-rate<%= notice.id %>');

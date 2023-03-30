@@ -1,13 +1,10 @@
 <div class='container px-5 px-sm-0 my-5'>
   <div class="row">
-    <div class='form-group row form-inline'><h1><投稿一覧>(全<%= @notices.count %>件)</h1></div>
-    <div class='col-md-8 offset-md-1 mb-4'>
-
-        <div class="row">
+    <div class="col-md-10"><h1><投稿一覧>(全<%= @notices.count %>件)</h1>
+      <div class="row">
         <%= render 'index', notices: @notices %>
-        </div>
       </div>
+    </div>
   </div>
 </div>
-
 

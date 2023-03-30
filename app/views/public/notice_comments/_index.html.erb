@@ -5,7 +5,7 @@
         <%= image_tag notice_comment2.senior.get_profile_image(100,100) %><br>
         <%= notice_comment2.senior.nickname %>
       <% end %>
-      <% if notice.genre_id == 1 %>
+      <% if notice.genre.discount_info? %>
       <%= render "public/notices/static_rate", notice: notice_comment2, prefix: "comment" %>
       <% end %>
     </div>

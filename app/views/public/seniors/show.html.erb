@@ -27,11 +27,6 @@
                   <th scope="row" class='bg-light col-lg-4'>紹介文</th>
                   <td class='col-lg-8 py-2'><%= current_senior.introduction %></td>
               </tr>
-
-              <tr>
-                  <th scope="row" class='bg-light col-lg-4'>メールアドレス</th>
-                  <td class='col-lg-8 py-2'><%= current_senior.email %></td>
-              </tr>
               <tr>
               <th>フォローしているシニア会員</th>
               <th><%= link_to current_senior.followings.count, senior_followings_path(@senior) %></th>
