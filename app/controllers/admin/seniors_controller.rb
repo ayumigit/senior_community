@@ -23,6 +23,7 @@ class Admin::SeniorsController < ApplicationController
     end
   end
 
+  private
   def senior_params
     params.require(:senior).permit(:email, :last_name, :first_name, :nickname, :introduction, :is_active, :id)
   end
