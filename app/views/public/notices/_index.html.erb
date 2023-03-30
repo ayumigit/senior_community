@@ -7,7 +7,7 @@
     <span class="col-12"><strong>●<%= notice.title %>●</strong></span>
     <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
     <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
-    <p class="col-12 h4"><%= notice.place %></p>
+    <p class="col-12 h4">場所：<%= notice.place %></p>
     <p><%= render "public/favorites/btn", notice: notice %></p>
     <!--企業側の投稿のみにratyをつける-->
       <% if notice.genre.discount_info? %>

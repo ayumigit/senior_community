@@ -60,15 +60,41 @@
           <% end %>
          </ul>
           <div class="d-flex flex-row-reverse mr-md-5 pb-1">
-            <%= form_with url: search_path, method: :get do |f| %>
-            <%= f.text_field :word , placeholder:"検索"%>
-            <% end %>
+            <%#= form_with url: search_path, method: :get do |f| %>
+            <%#= f.text_field :word , placeholder:"検索"%>
+            <%# end %>
           </div>
           <div class="pb-1">
-            <%= form_with url: search_path, method: :get do |f| %>
-              <%= f.text_field :tag , placeholder:"タグ検索"%>
+            <%#= form_with url: search_path, method: :get do |f| %>
+              <%#= f.text_field :tag , placeholder:"タグ検索"%>
+            <%# end %>
+          </div>
+
+
+          <div>
+            <%= form_with(scope: :search, url: search_path, method: :get, local: true) do |f| %>
+            <%= f.label :start_datetime, "開始日" %>
+            <%# byebug %>
+            <%#= f.date_field :start_datetime, value: @search_params[:start_datetime] %> ~
+            <%#= f.date_field :end_datetime, value: @search_params[:end_datetime] %>
+            <%= f.date_field :start_datetime %> ~
+            <%= f.date_field :end_datetime %>
+
+            <%= f.label :title, "タイトル" %>
+            <%#= f.text_field :title, placeholder: 'タイトル', value: @search_params[:title] %>
+            <%= f.text_field :title, placeholder: 'タイトル' %>
+
+            <%= f.label :place, "場所" %>
+            <%#= f.text_field :place, value: @search_params[:place] %>
+            <%= f.text_field :place %>
+
+            <%= submit_tag '検索', class: "button" %>
             <% end %>
           </div>
+
+
+
+
         </div>
     </div>
   </nav>

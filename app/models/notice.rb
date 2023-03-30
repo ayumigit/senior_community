@@ -33,6 +33,33 @@ class Notice < ApplicationRecord
     end
   end
 
+  scope :search, -> (search_params) do      #scopeでsearchメソッドを定義。(search_params)は引数
+    return if search_params.blank?      #検索フォームに値がなければ以下の手順は行わない
+
+    title_like(search_params[:title])
+      .start_datetime(search_params[:start_datetime])
+      .end_datetime(search_params[:end_datetime])
+      .place_like(search_params[:place])   #下記で定義しているscopeメソッドの呼び出し。「.」で繋げている
+  end
+
+  scope :title_like, -> (title) { where('title LIKE ?', "%#{title}%") if title.present? }  #scopeを定義。
+  scope :start_datetime, -> (from) { where('? <= start_datetime', from) if from.present? }
+  scope :end_datetime, -> (to) { where('end_datetime<= ?', to) if to.present? }
+   #日付の範囲検索をするため、fromとtoをつけている
+  scope :place_like, -> (place) { where('place LIKE ?', "%#{place}%") if place.present? }
+ #scope :メソッド名 -> (引数) { SQL文 }
+ #if 引数.present?をつけることで、検索フォームに値がない場合は実行されない
+
+
+
+
+
+
+
+
+
+
+
 
   def self.search_for(content, method)
     if method == 'perfect'

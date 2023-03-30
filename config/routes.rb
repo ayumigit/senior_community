@@ -17,7 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
     get '/search', to: 'searches#search'
-    
+
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
     resources :seniors, only: [:show, :edit, :index, :update] do
@@ -29,6 +29,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :notices, only: [:show, :index, :destroy, :edit, :update, :create, :new] do
       resources :notice_comments, only: [:create, :destroy, :index]
       resource :favorites, only: [:create, :destroy, :index]
+      collection do
+        get :search
+      end
     end
     resources :genres, only: [:show]
   end
