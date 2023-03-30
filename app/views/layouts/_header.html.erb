@@ -1,79 +1,75 @@
 <header class="bg-secondary text-monospace">
- <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #666633;">
-  <div class="container-fluid">
-   <% if senior_signed_in? %>
-   <a class="navbar-brand" href="/notices"><span>SeniorComunity</span></a>
-   <% else %>
-   <a class="navbar-brand" href="/"><span>SeniorComunity</span></a>
-   <% end %>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-   </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-     <ul class="navbar-nav ml-auto">
-      <!--adminログイン時のheader-->
-      <% if admin_signed_in? %>
-       <li>
-        <%= link_to "投稿一覧", admin_notices_path,class: 'nav-link text-light' %>
-       </li>
-       <li>
-        <%=  link_to "会員一覧", admin_seniors_path,class: 'nav-link text-light' %>
-       </li>
-       <li>
-       <%=  link_to "投稿種類一覧", admin_genres_path ,class: 'nav-link text-light' %>
-       </li>
-       <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %>
-       </li>
-
-      <!--customersログイン時のヘッダー-->
-      <% elsif senior_signed_in? %>
-      <li class= "nav-link text-light">
-        ようこそ！ <%= link_to senior_path(current_senior.id), class: "text-white font-weight-bold" do %>
-        <%= current_senior.nickname %>
-        <% end %>
-        さん
-      <li>
-       <%= link_to "シニア会員一覧", seniors_path, class: "nav-link text-light" %>
-      </li>
-      <li>
-       <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light', 'data-turbolinks': false %>
-      </li>
-      <li>
-       <%= link_to "ログアウト", destroy_senior_session_path, method: :delete, class: 'nav-link text-light' %>
-      </li>
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #666633;">
+    <div class="container-fluid">
+      <% if senior_signed_in? %>
+        <a class="navbar-brand" href="/notices"><span>SeniorComunity</span></a>
       <% else %>
-
-      <!--ログイン前のヘッダー-->
-       <li>
-        <%= link_to "About", about_path,class: 'nav-link text-light' %>
-       </li>
-
-       <li>
-        <%= link_to "新規登録", new_senior_registration_path,class: 'nav-link text-light' %>
-       </li>
-       <li>
-        <%= link_to "ログイン", new_senior_session_path ,class: 'nav-link text-light' %>
-       </li>
-
-       <li>
-      <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post, class: 'nav-link text-light' %>
-      </li>
-
+        <a class="navbar-brand" href="/"><span>SeniorComunity</span></a>
       <% end %>
-     </ul>
-     <div class="d-flex flex-row-reverse mr-md-5 pb-1">
-      <%= form_with url: search_path, method: :get do |f| %>
-       <%= f.text_field :word , placeholder:"検索"%>
-      <% end %>
-     </div>
-     <div class="pb-1">
-      <%= form_with url: search_path, method: :get do |f| %>
-       <%= f.text_field :tag , placeholder:"タグ検索"%>
-      <% end %>
-     </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <!--adminログイン時のheader-->
+          <% if admin_signed_in? %>
+            <li>
+              <%= link_to "投稿一覧", admin_notices_path,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%=  link_to "会員一覧", admin_seniors_path,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%=  link_to "投稿種類一覧", admin_genres_path ,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %>
+            </li>
 
+          <!--customersログイン時のヘッダー-->
+          <% elsif senior_signed_in? %>
+            <li class= "nav-link text-light">
+              ようこそ！ <%= link_to senior_path(current_senior.id), class: "text-white font-weight-bold" do %>
+              <%= current_senior.nickname %>
+          <% end %>
+            さん
+            <li>
+              <%= link_to "シニア会員一覧", seniors_path, class: "nav-link text-light" %>
+            </li>
+            <li>
+              <%= link_to "新規投稿", new_notice_path, class: 'nav-link text-light', 'data-turbolinks': false %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_senior_session_path, method: :delete, class: 'nav-link text-light' %>
+            </li>
+          <% else %>
+
+          <!--ログイン前のヘッダー-->
+            <li>
+              <%= link_to "About", about_path,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "新規登録", new_senior_registration_path,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_senior_session_path ,class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post, class: 'nav-link text-light' %>
+            </li>
+          <% end %>
+         </ul>
+          <div class="d-flex flex-row-reverse mr-md-5 pb-1">
+            <%= form_with url: search_path, method: :get do |f| %>
+            <%= f.text_field :word , placeholder:"検索"%>
+            <% end %>
+          </div>
+          <div class="pb-1">
+            <%= form_with url: search_path, method: :get do |f| %>
+              <%= f.text_field :tag , placeholder:"タグ検索"%>
+            <% end %>
+          </div>
+        </div>
     </div>
-   </div>
- </nav>
+  </nav>
 </header>

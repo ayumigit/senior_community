@@ -2,50 +2,37 @@
   <div class ="row">
     <div class="col-lg-8 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
       <h1><span><登録情報編集></span></h1>
-
-       <%= form_with model: @senior, url: admin_senior_path(@senior.id), method: :patch, local: true do |f| %>
-
-
+      <%= form_with model: @senior, url: admin_senior_path(@senior.id), method: :patch, local: true do |f| %>
         <div class="form-group row">
-        <%= f.label :last_name, '姓', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
+        <%= f.label :last_name, '姓', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br/>
         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:'col-7 mx-auto form-control' %>
         </div>
-
         <div class="form-group row">
-        <%= f.label :first_name, '名', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
+        <%= f.label :first_name, '名', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br/>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:'col-7 mx-auto form-control' %>
         </div>
-
         <div class="form-group row">
-        <%= f.label :nickname, 'ニックネーム', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
+        <%= f.label :nickname, 'ニックネーム', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br/>
         <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:'col-7 mx-auto form-control' %>
         </div>
-
         <div class="form-group row">
-        <%= f.label :email, 'メールアドレス', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br />
+        <%= f.label :email, 'メールアドレス', class:'col-3 px-0 mx-auto col-form-label col-form-label-lg' %><br/>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'col-7 mx-auto form-control' %>
         </div>
-
         <div class="form-group row">
-
-        <%= f.label :is_active, '会員ステータス', class:'col-3 px-0 mx-5 col-form-label col-form-label-lg' %><br />
-        <div class="form-check form-check-inline">
-        <%= f.radio_button :is_active, :true %>
-        <%= f.label :is_active, "有効", value: "false", class: "col-7 mx-auto" %>
-        <%= f.radio_button :is_active, :false %>
-        <%= f.label :is_active, "退会", value: "true", class: "col-7 mx-auto" %>
+        <%= f.label :is_active, '会員ステータス', class:'col-3 px-0 mx-5 col-form-label col-form-label-lg' %><br/>
+          <div class="form-check form-check-inline">
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "有効", value: "false", class: "col-7 mx-auto" %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "退会", value: "true", class: "col-7 mx-auto" %>
+          </div>
         </div>
-      </div>
-
-
-
         <div class="form-group row">
-        <span class="col-5"></span>
-        <%= f.submit "更新する", class: "btn btn btn-success col-4" %>
+          <span class="col-5"></span>
+          <%= f.submit "更新する", class: "btn btn btn-success col-4" %>
         </div>
-
       <% end %>
-
     </div>
   </div>
 </div>

@@ -1,35 +1,35 @@
-
 <% notices.each do |notice| %>
-    <div class ="col-12 col-md-6">
-      <%= link_to notice_path(notice.id), class:"a" do %>
-        <div class="col-12"><%= image_tag notice.get_notice_image(150,100), class:"rounded shadow col-8" %></div>
-      <% end %>
-
-      <span class="col-12"><strong>●<%= notice.title %>●</strong></span>
-      <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
-      <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
-      <p class="col-12 h4"><%= notice.place %></p>
-      <p><%= render "public/favorites/btn", notice: notice %></p>
-      <% if notice.genre.discount_info? %>
-      <div id="star-rate<%= notice.id %>">
-      </div>
-    <script>
-    $(document).on('turbolinks:load', function() {
-      let raty_<%= notice.id %> = document.querySelector('#star-rate<%= notice.id %>');
-      raty_<%= notice.id %>.innerHTML = ""
-      let option_<%= notice.id %> = {
-        starOn: "<%= asset_path('star-on.png') %>",
-        starOff: "<%= asset_path('star-off.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
-        score: <%= notice.notice_comment2s.average(:rate).to_f.round(1) %>,
-        readOnly: true,
-      };
-      raty(raty_<%= notice.id %> ,option_<%= notice.id %>);
-    });
-    </script>
+  <div class ="col-12 col-md-6">
+    <%= link_to notice_path(notice.id), class:"a" do %>
+      <div class="col-12"><%= image_tag notice.get_notice_image(150,100), class:"rounded shadow col-8" %></div>
     <% end %>
 
-    </div>
+    <span class="col-12"><strong>●<%= notice.title %>●</strong></span>
+    <p class="col-12 h4">開始日 :<%= notice.start_datetime.strftime('%m月%d日')%></p>
+    <p class="col-12 h4">終了日 :<%= notice.end_datetime.strftime('%m月%d日')%></p>
+    <p class="col-12 h4"><%= notice.place %></p>
+    <p><%= render "public/favorites/btn", notice: notice %></p>
+    <!--企業側の投稿のみにratyをつける-->
+      <% if notice.genre.discount_info? %>
+      <!--raty平均値-->
+        <div id="star-rate<%= notice.id %>">
+        </div>
+        <script>
+          $(document).on('turbolinks:load', function() {
+          let raty_<%= notice.id %> = document.querySelector('#star-rate<%= notice.id %>');
+            raty_<%= notice.id %>.innerHTML = ""
+          let option_<%= notice.id %> = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            score: <%= notice.notice_comment2s.average(:rate).to_f.round(1) %>,
+            readOnly: true,
+            };
+            raty(raty_<%= notice.id %> ,option_<%= notice.id %>);
+              });
+        </script>
+      <% end %>
+  </div>
 <% end %>
 
 

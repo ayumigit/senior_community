@@ -1,30 +1,28 @@
 <%= form_with(model:[notice, notice_comment2], url:notice_notice_comments_path(notice.id), local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
-
-  <% if notice.genre.discount_info? %>
-    <div class="form-group row" id="star">
-      <label class="ml-5 row font-large">レビュー評価</label>
+    <!--企業側の投稿のみにratyをつける制約-->
+    <% if notice.genre.discount_info? %>
+      <div class="form-group row" id="star">
+        <label class="ml-5 row font-large">レビュー評価</label>
         <div class="ml-5 row lg">
           <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
           <div id="post_raty"></div>
         </div>
-    </div>
-
-  　<script>
-      $(document).on('turbolinks:load', function() {
-      let raty_elem = document.querySelector('#post_raty');
-      raty_elem.innerHTML = ""
-      let option = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'notice[rate]',
-          score: "<%= f.object.nil? ? 0 : f.object.rate %>"
-        };
-      raty(raty_elem,option);
-     });
-    </script>
+      </div>
+    　<script>
+        $(document).on('turbolinks:load', function() {
+        let raty_elem = document.querySelector('#post_raty');
+        raty_elem.innerHTML = ""
+        let option = {
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'notice[rate]',
+            score: "<%= f.object.nil? ? 0 : f.object.rate %>"
+          };
+        raty(raty_elem,option);
+       });
+      </script>
     <% end %>
-
-    <%= f.submit "送信する", class: "btn-primary btn-lg btn-base-1 mt-20 pull-right" %>
+  <%= f.submit "送信する", class: "btn-primary btn-lg btn-base-1 mt-20 pull-right" %>
 <% end %>

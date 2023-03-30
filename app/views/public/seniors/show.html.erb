@@ -1,47 +1,42 @@
 <div class = "container-fluid">
   <div class ="row">
-      <div class="col-lg-6 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
-
-        <h3 class="mb-5">マイページ</h3>
-        <div  class='row pb-3'>
-          <h4 class="col-3">登録情報</h4>
-          <% if @senior == current_senior %>
+    <div class="col-lg-6 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
+      <h3 class="mb-5">マイページ</h3>
+      <div  class='row pb-3'>
+        <h4 class="col-3">登録情報</h4>
+        <!--編集は自分ののみの制限-->
+        <% if @senior == current_senior %>
           <%= link_to  '編集する', edit_senior_path, class:"btn btn-success" %>
-          <% end %>
-        </div>
-        <div class="col-md-3">
-          <%= image_tag @senior.get_profile_image(300,300), class:"shadow img-thumbnail" %>
-        </div>
-
-        <table class="table table-bordered">
-          <tbody>
-              <tr>
-                  <th scope="row" class='bg-light col-lg-4'>氏名</th>
-                  <td class='col-lg-8 py-2'><%= current_senior.last_name %><%= current_senior.first_name %></td>
-              </tr>
-              <tr>
-                  <th scope="row" class='bg-light col-lg-4'>ニックネーム</th>
-                  <td class='col-lg-8 py-2'><%= current_senior.nickname %></td>
-              </tr>
-              <tr>
-                  <th scope="row" class='bg-light col-lg-4'>紹介文</th>
-                  <td class='col-lg-8 py-2'><%= current_senior.introduction %></td>
-              </tr>
-              <tr>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= image_tag @senior.get_profile_image(300,300), class:"shadow img-thumbnail" %>
+      </div>
+      <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row" class='bg-light col-lg-4'>氏名</th>
+                <td class='col-lg-8 py-2'><%= current_senior.last_name %><%= current_senior.first_name %></td>
+            </tr>
+            <tr>
+                <th scope="row" class='bg-light col-lg-4'>ニックネーム</th>
+                <td class='col-lg-8 py-2'><%= current_senior.nickname %></td>
+            </tr>
+            <tr>
+                <th scope="row" class='bg-light col-lg-4'>紹介文</th>
+                <td class='col-lg-8 py-2'><%= current_senior.introduction %></td>
+            </tr>
+            <tr>
               <th>フォローしているシニア会員</th>
               <th><%= link_to current_senior.followings.count, senior_followings_path(@senior) %></th>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
               <th>フォローされているシニア会員</th>
               <th><%= link_to current_senior.followers.count, senior_followers_path(@senior) %></th>
-              </tr>
-
-              <tr><%= render "public/relationships/btn", senior: @senior %></tr>
-
-          </tbody>
-        </table>
-
-
-      </div>
+            </tr>
+            <tr><%= render "public/relationships/btn", senior: @senior %></tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

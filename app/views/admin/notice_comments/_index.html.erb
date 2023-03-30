@@ -1,8 +1,7 @@
 <table>
   <tbody>
-      <% notice.notice_comment2s.each do |notice_comment2| %>
+    <% notice.notice_comment2s.each do |notice_comment2| %>
       <tr>
-
         <td>
           <%= link_to senior_path(notice_comment2.senior) do %>
             <%= image_tag notice_comment2.senior.get_profile_image(100,100) %><br>
@@ -11,9 +10,9 @@
         </td>
         <td><%= notice_comment2.comment %></td>
         <td>
-            <%= link_to "削除する", notice_notice_comment_path(notice, notice_comment2), method: :delete, class: "btn btn-danger pull-right" %>
+          <%= link_to "削除する", notice_notice_comment_path(notice, notice_comment2), method: :delete, class: "btn btn-danger pull-right" %>
         </td>
       </tr>
-      <% end %>
+    <% end %>
   </tbody>
 </table>

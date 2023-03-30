@@ -4,9 +4,8 @@
       <h4 class="ml-5">投稿編集</h4>
     </div>
   </div>
-
-   <%= form_with model: @notice, local: true do |f| %>
-  <%#= render :partial => 'form', :locals => {:f => f, :edit_flag => true} %>
+  <!--編集でのformのrenderの仕方-->
+  <%= form_with model: @notice, local: true do |f| %>
   <%= render 'form', {:f => f, :edit_flag => true} %>
   <% end %>
 </div>

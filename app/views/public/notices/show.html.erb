@@ -6,6 +6,7 @@
     <div class="col-md-3">
       <%= image_tag @notice.get_notice_image(300,300), class:"shadow img-thumbnail" %>
       <%= render "public/notice_comments/form", notice: @notice, notice_comment2: @notice_comment %>
+      <!--投稿した人のみの編集機能ボタン-->
       <% if @senior == current_senior %>
       <div class="form-group">
         <%= link_to "編集する", edit_notice_path, class: "btn btn-success btn-lg" %>
@@ -13,7 +14,6 @@
       </div>
       <% end %>
     </div>
-
     <div class="col-md-9">
       <div>
         <div class="form-group row">
@@ -49,12 +49,10 @@
           <p class="col-8 h2"><%= @notice.senior.nickname %></p>
         </div>
       </div>
-
       <div class="form-group row">
         <p class="col-4 h2">コメント数: <%= @notice.notice_comment2s.count %></p>
         <p class="col-8 h2"><%= render "public/favorites/btn", notice: @notice %></p>
       </div>
-
       <%= render "public/notice_comments/index", notice: @notice %>
     </div>
   </div>

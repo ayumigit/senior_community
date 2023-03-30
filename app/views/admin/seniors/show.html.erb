@@ -1,45 +1,37 @@
 <div class = "container-fluid">
   <div class ="row">
-      <div class="col-lg-6 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
-
-        <h3 class="mb-5">シニア会員詳細ページ</h3>
-
-        <div  class='row pb-3'>
-          <h4 class="col-3">登録情報</h4>
-          <%= link_to  '編集する', edit_admin_senior_path, class:"btn btn-success" %>
-        </div>
-
-        <table class="table table-bordered">
-          <tbody>
-              <tr>
-        	      <th>会員ID</th>
-        	      <th><%= @senior.id%></th>
-              </tr>
-              <tr>
-                <th scope="row" class='bg-light col-lg-4'>ニックネーム</th> 
-                <td class='col-lg-8 py-2'><%= @senior.nickname %></td>
-              </tr>
-              <tr>
-                <th scope="row" class='bg-light col-lg-4'>紹介文</th>
-                <td class='col-lg-8 py-2'><%= @senior.introduction %></td>
-              </tr>
-
-              <tr>
-        	      <th>会員ステータス</th>
-                <th><% if @senior.is_active == true %>
-                  <b class="text-success font-weight-bold">有効</b>
-                <% else %>
-                  <b class="text-muted font-weight-bold">退会</b>
-                <% end %>
-                </th>
-              </tr>
-
-
-          </tbody>
-        </table>
-
-
+    <div class="col-lg-6 col-md-10 col-sm-12 mx-6 mx-sm-auto px-auto my-5">
+      <h3 class="mb-5">シニア会員詳細ページ</h3>
+      <div  class='row pb-3'>
+        <h4 class="col-3">登録情報</h4>
+        <%= link_to  '編集する', edit_admin_senior_path, class:"btn btn-success" %>
       </div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+    	      <th>会員ID</th>
+    	      <th><%= @senior.id%></th>
+          </tr>
+          <tr>
+            <th scope="row" class='bg-light col-lg-4'>ニックネーム</th>
+            <td class='col-lg-8 py-2'><%= @senior.nickname %></td>
+          </tr>
+          <tr>
+            <th scope="row" class='bg-light col-lg-4'>紹介文</th>
+            <td class='col-lg-8 py-2'><%= @senior.introduction %></td>
+          </tr>
+          <tr>
+    	      <th>会員ステータス</th>
+            <th><% if @senior.is_active == true %>
+              <b class="text-success font-weight-bold">有効</b>
+            <% else %>
+              <b class="text-muted font-weight-bold">退会</b>
+            <% end %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 

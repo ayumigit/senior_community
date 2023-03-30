@@ -4,6 +4,7 @@
       <h4 class="ml-5">新規投稿</h4>
     </div>
   </div>
+  <!--新規投稿でのformのrenderの仕方-->
   <%= form_with model: @notice, local: true do |f| %>
     <%= render 'form', f: f %>
   <% end %>
