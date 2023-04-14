@@ -7,6 +7,12 @@ class Notice < ApplicationRecord
   has_many :notice_tags, dependent: :destroy
   has_many :tags, through: :notice_tags
 
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :start_datetime, presence: true
+  validates :end_datetime, presence: true
+  validates :place, presence: true
+
 
   def favorited_by?(senior)
     favorites.exists?(senior_id: senior.id)

@@ -1,6 +1,9 @@
 class Tag < ApplicationRecord
   has_many :notice_tags, dependent: :destroy, foreign_key: 'tag_id'
   has_many :notices, through: :notice_tags
+
+  validates :name, presence: true
+
   def self.search_notices_for(content, method)
     if method == 'perfect'
       tags = Tag.where(name: content)

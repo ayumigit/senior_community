@@ -43,7 +43,7 @@ class Public::NoticesController < ApplicationController
       redirect_to notices_path, notice: "新規登録に成功しました！"
     else
       @notices = Notice.all
-      render 'index'
+     redirect_to new_notice_url
     end
   end
 
