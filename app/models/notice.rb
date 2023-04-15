@@ -13,7 +13,6 @@ class Notice < ApplicationRecord
   validates :end_datetime, presence: true
   validates :place, presence: true
 
-
   def favorited_by?(senior)
     favorites.exists?(senior_id: senior.id)
   end
