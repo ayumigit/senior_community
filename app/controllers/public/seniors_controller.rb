@@ -11,6 +11,11 @@ class Public::SeniorsController < ApplicationController
   end
 
   def edit
+    senior = Senior.find(params[:id])
+      unless senior.id == current_senior.id
+      redirect_to seniors_path
+      end
+
     @senior = current_senior
   end
 
